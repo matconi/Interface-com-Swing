@@ -33,15 +33,16 @@ public class Home extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jPopupMenu2 = new javax.swing.JPopupMenu();
-        jMenuBar3 = new javax.swing.JMenuBar();
-        jMenu7 = new javax.swing.JMenu();
-        itemContAdicionar = new javax.swing.JMenuItem();
+        MenuBar = new javax.swing.JMenuBar();
+        menuCont = new javax.swing.JMenu();
+        itemContAdd = new javax.swing.JMenuItem();
         itemContVer = new javax.swing.JMenuItem();
-        jMenu8 = new javax.swing.JMenu();
+        menuMen = new javax.swing.JMenu();
         itemMenAdd = new javax.swing.JMenuItem();
         itemMenShare = new javax.swing.JMenuItem();
-        itemMenShare1 = new javax.swing.JMenuItem();
-        jMenu9 = new javax.swing.JMenu();
+        itemMenBox = new javax.swing.JMenuItem();
+        MenuUsu = new javax.swing.JMenu();
+        itemUsuAdd = new javax.swing.JMenuItem();
 
         jMenu3.setText("jMenu3");
 
@@ -58,15 +59,15 @@ public class Home extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Início");
 
-        jMenu7.setText("Contatos");
+        menuCont.setText("Contatos");
 
-        itemContAdicionar.setText("Adicionar");
-        itemContAdicionar.addActionListener(new java.awt.event.ActionListener() {
+        itemContAdd.setText("Adicionar");
+        itemContAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemContAdicionarActionPerformed(evt);
+                itemContAddActionPerformed(evt);
             }
         });
-        jMenu7.add(itemContAdicionar);
+        menuCont.add(itemContAdd);
 
         itemContVer.setText("Ver contatos");
         itemContVer.addActionListener(new java.awt.event.ActionListener() {
@@ -74,11 +75,11 @@ public class Home extends javax.swing.JFrame {
                 itemContVerActionPerformed(evt);
             }
         });
-        jMenu7.add(itemContVer);
+        menuCont.add(itemContVer);
 
-        jMenuBar3.add(jMenu7);
+        MenuBar.add(menuCont);
 
-        jMenu8.setText("Mensagens");
+        menuMen.setText("Mensagens");
 
         itemMenAdd.setText("Enviar mensagem");
         itemMenAdd.setToolTipText("");
@@ -87,7 +88,7 @@ public class Home extends javax.swing.JFrame {
                 itemMenAddActionPerformed(evt);
             }
         });
-        jMenu8.add(itemMenAdd);
+        menuMen.add(itemMenAdd);
 
         itemMenShare.setText("Enviados");
         itemMenShare.setToolTipText("");
@@ -96,41 +97,50 @@ public class Home extends javax.swing.JFrame {
                 itemMenShareActionPerformed(evt);
             }
         });
-        jMenu8.add(itemMenShare);
+        menuMen.add(itemMenShare);
 
-        itemMenShare1.setText("Caixa de Entrada");
-        itemMenShare1.setToolTipText("");
-        itemMenShare1.addActionListener(new java.awt.event.ActionListener() {
+        itemMenBox.setText("Caixa de Entrada");
+        itemMenBox.setToolTipText("");
+        itemMenBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemMenShare1ActionPerformed(evt);
+                itemMenBoxActionPerformed(evt);
             }
         });
-        jMenu8.add(itemMenShare1);
+        menuMen.add(itemMenBox);
 
-        jMenuBar3.add(jMenu8);
+        MenuBar.add(menuMen);
 
-        jMenu9.setText("Usuário");
-        jMenuBar3.add(jMenu9);
+        MenuUsu.setText("Usuário");
 
-        setJMenuBar(jMenuBar3);
+        itemUsuAdd.setText("Novo Usuário");
+        itemUsuAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemUsuAddActionPerformed(evt);
+            }
+        });
+        MenuUsu.add(itemUsuAdd);
+
+        MenuBar.add(MenuUsu);
+
+        setJMenuBar(MenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 617, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGap(0, 359, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void itemContAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemContAdicionarActionPerformed
+    private void itemContAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemContAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_itemContAdicionarActionPerformed
+    }//GEN-LAST:event_itemContAddActionPerformed
 
     private void itemMenAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenAddActionPerformed
         // TODO add your handling code here:
@@ -144,9 +154,13 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_itemMenShareActionPerformed
 
-    private void itemMenShare1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenShare1ActionPerformed
+    private void itemMenBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_itemMenShare1ActionPerformed
+    }//GEN-LAST:event_itemMenBoxActionPerformed
+
+    private void itemUsuAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemUsuAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemUsuAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,23 +198,24 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem itemContAdicionar;
+    private javax.swing.JMenuBar MenuBar;
+    private javax.swing.JMenu MenuUsu;
+    private javax.swing.JMenuItem itemContAdd;
     private javax.swing.JMenuItem itemContVer;
     private javax.swing.JMenuItem itemMenAdd;
+    private javax.swing.JMenuItem itemMenBox;
     private javax.swing.JMenuItem itemMenShare;
-    private javax.swing.JMenuItem itemMenShare1;
+    private javax.swing.JMenuItem itemUsuAdd;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
+    private javax.swing.JMenu menuCont;
+    private javax.swing.JMenu menuMen;
     // End of variables declaration//GEN-END:variables
 
 }

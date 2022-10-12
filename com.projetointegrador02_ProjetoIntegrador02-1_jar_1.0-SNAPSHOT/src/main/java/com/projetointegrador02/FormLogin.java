@@ -28,12 +28,12 @@ public class FormLogin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        LabelHeading = new javax.swing.JLabel();
-        FdUsuario = new javax.swing.JTextField();
-        LbUsuario = new javax.swing.JLabel();
+        lbHeading = new javax.swing.JLabel();
+        fieldUsuario = new javax.swing.JTextField();
+        lbUsuario = new javax.swing.JLabel();
         LbSenha = new javax.swing.JLabel();
-        BtnEntrar = new javax.swing.JButton();
-        PasswordField = new javax.swing.JPasswordField();
+        btnEntrar = new javax.swing.JButton();
+        passwordField = new javax.swing.JPasswordField();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 12), new java.awt.Dimension(0, 12), new java.awt.Dimension(32767, 12));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -62,36 +62,36 @@ public class FormLogin extends javax.swing.JFrame {
         setTitle("Janela de Login");
         setPreferredSize(new java.awt.Dimension(500, 300));
 
-        LabelHeading.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
-        LabelHeading.setForeground(new java.awt.Color(0, 153, 255));
-        LabelHeading.setText("Login dos Usuários");
+        lbHeading.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
+        lbHeading.setForeground(new java.awt.Color(0, 153, 255));
+        lbHeading.setText("Login dos Usuários");
 
-        FdUsuario.setColumns(10);
-        FdUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        FdUsuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        fieldUsuario.setColumns(10);
+        fieldUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        fieldUsuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
-        LbUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        LbUsuario.setLabelFor(LbUsuario);
-        LbUsuario.setText("Usuário:");
+        lbUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbUsuario.setLabelFor(fieldUsuario);
+        lbUsuario.setText("Usuário:");
 
         LbSenha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        LbSenha.setLabelFor(LbSenha);
+        LbSenha.setLabelFor(passwordField);
         LbSenha.setText("Senha:");
 
-        BtnEntrar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        BtnEntrar.setForeground(new java.awt.Color(0, 153, 255));
-        BtnEntrar.setText("ENTRAR");
-        BtnEntrar.addActionListener(new java.awt.event.ActionListener() {
+        btnEntrar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnEntrar.setForeground(new java.awt.Color(0, 153, 255));
+        btnEntrar.setText("ENTRAR");
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnEntrarActionPerformed(evt);
+                btnEntrarActionPerformed(evt);
             }
         });
 
-        PasswordField.setColumns(10);
-        PasswordField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        PasswordField.addActionListener(new java.awt.event.ActionListener() {
+        passwordField.setColumns(10);
+        passwordField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PasswordFieldActionPerformed(evt);
+                passwordFieldActionPerformed(evt);
             }
         });
 
@@ -103,15 +103,15 @@ public class FormLogin extends javax.swing.JFrame {
                 .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(LbUsuario)
+                        .addComponent(lbUsuario)
                         .addGap(18, 18, 18)
-                        .addComponent(FdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(BtnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(LbSenha)
                         .addGap(18, 18, 18)
-                        .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(LabelHeading))
+                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbHeading))
                 .addGap(71, 71, 71)
                 .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -125,34 +125,34 @@ public class FormLogin extends javax.swing.JFrame {
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(LabelHeading)
+                        .addComponent(lbHeading)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(LbUsuario))
-                            .addComponent(FdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbUsuario))
+                            .addComponent(fieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(LbSenha))
-                            .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(BtnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEntrarActionPerformed
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnEntrarActionPerformed
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
-    private void PasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordFieldActionPerformed
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordFieldActionPerformed
+    }//GEN-LAST:event_passwordFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,14 +190,14 @@ public class FormLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnEntrar;
-    private javax.swing.JTextField FdUsuario;
-    private javax.swing.JLabel LabelHeading;
     private javax.swing.JLabel LbSenha;
-    private javax.swing.JLabel LbUsuario;
-    private javax.swing.JPasswordField PasswordField;
+    private javax.swing.JButton btnEntrar;
+    private javax.swing.JTextField fieldUsuario;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lbHeading;
+    private javax.swing.JLabel lbUsuario;
+    private javax.swing.JPasswordField passwordField;
     // End of variables declaration//GEN-END:variables
 }
