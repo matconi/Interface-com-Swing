@@ -4,6 +4,7 @@
  */
 package com.projetointegrador02;
 
+
 /**
  *
  * @author Usuario
@@ -34,7 +35,7 @@ public class FormUsuAdd extends javax.swing.JFrame {
         lbTel = new javax.swing.JLabel();
         fieldEmail = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Adicionar Usuário");
 
         fieldUsuario.setColumns(10);

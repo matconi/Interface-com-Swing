@@ -35,7 +35,7 @@ public class FormMenAdd extends javax.swing.JFrame {
         btnSal = new javax.swing.JButton();
         btnExc = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Adicionar mensagem");
 
         labelNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N

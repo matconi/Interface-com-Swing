@@ -60,6 +60,11 @@ public class Home extends javax.swing.JFrame {
         setTitle("Início");
 
         menuCont.setText("Contatos");
+        menuCont.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuContActionPerformed(evt);
+            }
+        });
 
         itemContAdd.setText("Adicionar");
         itemContAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -140,27 +145,43 @@ public class Home extends javax.swing.JFrame {
 
     private void itemContAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemContAddActionPerformed
         // TODO add your handling code here:
+        FormContAdd addCont = new FormContAdd();
+        addCont.setVisible(true);
     }//GEN-LAST:event_itemContAddActionPerformed
 
     private void itemMenAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenAddActionPerformed
         // TODO add your handling code here:
+        FormMenAdd addMen = new FormMenAdd();
+        addMen.setVisible(true);
     }//GEN-LAST:event_itemMenAddActionPerformed
 
     private void itemContVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemContVerActionPerformed
         // TODO add your handling code here:
+        FormContVer verCont = new FormContVer();
+        verCont.setVisible(true);
     }//GEN-LAST:event_itemContVerActionPerformed
 
     private void itemMenShareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenShareActionPerformed
         // TODO add your handling code here:
+        FormMenEnv envMen = new FormMenEnv();
+        envMen.setVisible(true);
     }//GEN-LAST:event_itemMenShareActionPerformed
 
     private void itemMenBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenBoxActionPerformed
         // TODO add your handling code here:
+        FormMenBox boxMen = new FormMenBox();
+        boxMen.setVisible(true);
     }//GEN-LAST:event_itemMenBoxActionPerformed
 
     private void itemUsuAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemUsuAddActionPerformed
         // TODO add your handling code here:
+        FormUsuAdd usuAdd = new FormUsuAdd();
+        usuAdd.setVisible(true);
     }//GEN-LAST:event_itemUsuAddActionPerformed
+
+    private void menuContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuContActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuContActionPerformed
 
     /**
      * @param args the command line arguments
