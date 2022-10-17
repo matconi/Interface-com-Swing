@@ -4,6 +4,8 @@
  */
 package com.projetointegrador02;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -129,10 +131,19 @@ public class FormContAdd extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+        String noneData = "";
+        JOptionPane jo = new JOptionPane();     
+            jo.showMessageDialog(rootPane, "Preencha todos os campos corretamente!",
+        } else {      
+            jo.showMessageDialog(rootPane, "Contato adicionado com sucesso!",
+                "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     /**

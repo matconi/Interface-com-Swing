@@ -5,6 +5,8 @@
 
 package com.projetointegrador02;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -58,6 +60,11 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Início");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         menuCont.setText("Contatos");
         menuCont.addActionListener(new java.awt.event.ActionListener() {
@@ -183,6 +190,21 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_menuContActionPerformed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        //JOptionPane jo = new JOptionPane(this, JOptionPane.WARNING_MESSAGE);
+        int end = JOptionPane.showConfirmDialog(
+                this, "Fechar o menu inicial encerrará o programa. Tem certeza que deseja fazer isso?",
+                "Encerrar Programa", WIDTH, JOptionPane.WARNING_MESSAGE
+        );
+        if (end == 0) {
+            this.setVisible(false);
+            System.exit(0);
+        } else {
+            this.getDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        }
+    }//GEN-LAST:event_formWindowClosing
+
     /**
      * @param args the command line arguments
      */
@@ -238,5 +260,9 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenu menuCont;
     private javax.swing.JMenu menuMen;
     // End of variables declaration//GEN-END:variables
+
+    private void getDefaultCloseOperation(int DO_NOTHING_ON_CLOSE) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }

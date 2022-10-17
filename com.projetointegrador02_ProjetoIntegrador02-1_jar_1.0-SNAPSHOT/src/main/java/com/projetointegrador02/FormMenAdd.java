@@ -4,6 +4,8 @@
  */
 package com.projetointegrador02;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -137,14 +139,42 @@ public class FormMenAdd extends javax.swing.JFrame {
 
     private void btnSalEnvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalEnvActionPerformed
         // TODO add your handling code here:
+        String noneData = "";
+        JOptionPane jo = new JOptionPane();
+        if ((this.fieldNome.getText().equals(noneData)) || (this.textArea.getText().equals(noneData))) {           
+            jo.showMessageDialog(rootPane, "Preencha todos os campos corretamente!",
+                "Campos inválidos", JOptionPane.ERROR_MESSAGE);
+        } else {      
+            jo.showMessageDialog(rootPane, "Mensagem enviada com sucesso!",
+                "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_btnSalEnvActionPerformed
 
     private void btnSalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalActionPerformed
         // TODO add your handling code here:
+        String noneData = "";
+        JOptionPane jo = new JOptionPane();
+        if ((this.fieldNome.getText().equals(noneData)) || (this.textArea.getText().equals(noneData))) {           
+            jo.showMessageDialog(rootPane, "Preencha todos os campos corretamente!",
+                "Campos inválidos", JOptionPane.ERROR_MESSAGE);
+        } else {      
+            jo.showMessageDialog(rootPane, "Mensagem salva com sucesso!",
+                "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_btnSalActionPerformed
 
     private void btnExcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcActionPerformed
         // TODO add your handling code here:
+        int end = JOptionPane.showConfirmDialog(
+                this, "Tem certeza que deseja excluir a mensagem?",
+                "Excluir Mensagem", WIDTH, JOptionPane.WARNING_MESSAGE
+        );
+        if (end == 0) {
+            this.setVisible(false);
+        } else {
+            this.setVisible(true);
+        }
     }//GEN-LAST:event_btnExcActionPerformed
 
     /**

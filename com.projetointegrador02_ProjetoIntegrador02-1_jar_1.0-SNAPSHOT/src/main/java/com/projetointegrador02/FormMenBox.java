@@ -4,6 +4,9 @@
  */
 package com.projetointegrador02;
 
+import static java.awt.image.ImageObserver.WIDTH;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -128,10 +131,22 @@ public class FormMenBox extends javax.swing.JFrame {
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
+        FormMenAdd formMenAdd = new FormMenAdd();
+        formMenAdd.setVisible(true);
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnExcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcActionPerformed
         // TODO add your handling code here:
+        int end = JOptionPane.showConfirmDialog(
+                this, "Tem certeza que deseja apagar mensagem?",
+                "Apagar Mensagem", WIDTH, JOptionPane.WARNING_MESSAGE
+        );
+        if (end == 0) {
+            this.setVisible(false);
+            JOptionPane.showMessageDialog(rootPane, "Mensagem apagada com sucesso.");
+        } else {
+            this.setVisible(true);
+        }
     }//GEN-LAST:event_btnExcActionPerformed
 
     private void btnPesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesActionPerformed

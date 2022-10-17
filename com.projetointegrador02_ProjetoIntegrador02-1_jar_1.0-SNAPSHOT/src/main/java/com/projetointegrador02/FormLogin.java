@@ -4,6 +4,8 @@
  */
 package com.projetointegrador02;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -147,9 +149,17 @@ public class FormLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        // TODO add your handling code here:
-        Home home = new Home();
-        home.setVisible(true);
+        // TODO add your handling code here:           
+        String noneData = "";
+        JOptionPane jo = new JOptionPane();
+        if ((this.fieldUsuario.getText().equals(noneData)) || (this.passwordField.getText().equals(noneData))) {           
+            jo.showMessageDialog(rootPane, "Preencha todos os campos corretamente!",
+                "Campos inválidos", JOptionPane.ERROR_MESSAGE);
+        } else {      
+            Home home = new Home();
+            home.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
      
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed

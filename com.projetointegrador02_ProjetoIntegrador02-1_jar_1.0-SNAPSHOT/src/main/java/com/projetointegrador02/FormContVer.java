@@ -4,6 +4,9 @@
  */
 package com.projetointegrador02;
 
+import static java.awt.image.ImageObserver.WIDTH;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -128,14 +131,27 @@ public class FormContVer extends javax.swing.JFrame {
 
     private void btnExcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcActionPerformed
         // TODO add your handling code here:
+        int end = JOptionPane.showConfirmDialog(
+                this, "Tem certeza que deseja excluir o contato?",
+                "Excluir Contato", WIDTH, JOptionPane.WARNING_MESSAGE
+        );
+        if (end == 0) {
+            this.setVisible(false);
+            JOptionPane.showMessageDialog(rootPane, "Contato excluído com sucesso.");
+        } else {
+            this.setVisible(true);
+        }
     }//GEN-LAST:event_btnExcActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
+        FormContAdd formContAdd = new FormContAdd();
+        formContAdd.setVisible(true);
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnPesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnPesActionPerformed
 
     /**
