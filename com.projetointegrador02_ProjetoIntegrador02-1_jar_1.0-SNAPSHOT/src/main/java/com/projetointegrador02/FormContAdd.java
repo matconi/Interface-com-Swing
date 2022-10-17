@@ -133,7 +133,9 @@ public class FormContAdd extends javax.swing.JFrame {
         // TODO add your handling code here:
         String noneData = "";
         JOptionPane jo = new JOptionPane();     
+        if ((this.fieldNome.getText().equals(noneData)) || (this.fieldEmail.getText().equals(noneData))) {           
             jo.showMessageDialog(rootPane, "Preencha todos os campos corretamente!",
+                "Campos inválidos", JOptionPane.ERROR_MESSAGE);
         } else {      
             jo.showMessageDialog(rootPane, "Contato adicionado com sucesso!",
                 "Sucesso", JOptionPane.INFORMATION_MESSAGE);
