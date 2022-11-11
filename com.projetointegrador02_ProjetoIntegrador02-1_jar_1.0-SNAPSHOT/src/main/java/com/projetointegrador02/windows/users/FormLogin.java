@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.projetointegrador02;
+package com.projetointegrador02.windows.users;
 
+import com.projetointegrador02.ProjetoIntegrador021;
+import com.projetointegrador02.windows.Home;
 import javax.swing.JOptionPane;
 
 /**
@@ -62,7 +64,6 @@ public class FormLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Janela de Login");
-        setPreferredSize(new java.awt.Dimension(500, 300));
 
         lbHeading.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
         lbHeading.setForeground(new java.awt.Color(0, 153, 255));
@@ -151,8 +152,8 @@ public class FormLogin extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:           
         String noneData = "";
-        JOptionPane jo = new JOptionPane();
-        if ((this.fieldUsuario.getText().equals(noneData)) || (this.passwordField.getText().equals(noneData))) {           
+        if ((this.fieldUsuario.getText().equals(noneData)) || (this.passwordField.getText().equals(noneData))) {               
+            JOptionPane jo = new JOptionPane();
             jo.showMessageDialog(rootPane, "Preencha todos os campos corretamente!",
                 "Campos inválidos", JOptionPane.ERROR_MESSAGE);
         } else {      

@@ -2,21 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.projetointegrador02;
+package com.projetointegrador02.windows.messages;
 
-import static java.awt.image.ImageObserver.WIDTH;
+
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Usuario
  */
-public class FormMenEnv extends javax.swing.JFrame {
+public class FormMenBox extends javax.swing.JFrame {
 
     /**
      * Creates new form FormMenEnt
      */
-    public FormMenEnv() {
+    public FormMenBox() {
         initComponents();
     }
 
@@ -30,7 +30,7 @@ public class FormMenEnv extends javax.swing.JFrame {
     private void initComponents() {
 
         lbDestino = new javax.swing.JLabel();
-        fieldPara = new javax.swing.JTextField();
+        fieldDe = new javax.swing.JTextField();
         btnPes = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         list = new javax.swing.JList<>();
@@ -38,18 +38,17 @@ public class FormMenEnv extends javax.swing.JFrame {
         btnEdit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Mensagens Enviadas");
+        setTitle("Caixa de Entrada");
 
         lbDestino.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbDestino.setLabelFor(fieldPara);
-        lbDestino.setText("Para:");
+        lbDestino.setLabelFor(fieldDe);
+        lbDestino.setText("De:");
 
-        fieldPara.setColumns(12);
-        fieldPara.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        fieldPara.setToolTipText("");
-        fieldPara.addActionListener(new java.awt.event.ActionListener() {
+        fieldDe.setColumns(12);
+        fieldDe.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        fieldDe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldParaActionPerformed(evt);
+                fieldDeActionPerformed(evt);
             }
         });
 
@@ -77,7 +76,8 @@ public class FormMenEnv extends javax.swing.JFrame {
         });
 
         btnEdit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnEdit.setText("Editar");
+        btnEdit.setText("Responder");
+        btnEdit.setToolTipText("");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
@@ -89,7 +89,7 @@ public class FormMenEnv extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(34, 34, 34)
                 .addComponent(lbDestino)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -98,11 +98,11 @@ public class FormMenEnv extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(fieldPara)
+                        .addComponent(fieldDe)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnPes, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,7 +111,7 @@ public class FormMenEnv extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnPes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(fieldPara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fieldDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lbDestino)))
                 .addGap(21, 21, 21)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -125,33 +125,33 @@ public class FormMenEnv extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fieldParaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldParaActionPerformed
+    private void fieldDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldDeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fieldParaActionPerformed
-
-    private void btnPesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPesActionPerformed
-
-    private void btnExcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcActionPerformed
-        // TODO add your handling code here:
-         int end = JOptionPane.showConfirmDialog(
-                this, "Tem certeza que deseja excluir a mensagem?",
-                "Excluir Mensagem", WIDTH, JOptionPane.WARNING_MESSAGE
-        );
-        if (end == 0) {
-            this.setVisible(false);
-            JOptionPane.showMessageDialog(rootPane, "Mensagem excluída com sucesso.");
-        } else {
-            this.setVisible(true);
-        }
-    }//GEN-LAST:event_btnExcActionPerformed
+    }//GEN-LAST:event_fieldDeActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
         FormMenAdd formMenAdd = new FormMenAdd();
         formMenAdd.setVisible(true);
     }//GEN-LAST:event_btnEditActionPerformed
+
+    private void btnExcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcActionPerformed
+        // TODO add your handling code here:
+        int end = JOptionPane.showConfirmDialog(
+                this, "Tem certeza que deseja apagar mensagem?",
+                "Apagar Mensagem", WIDTH, JOptionPane.WARNING_MESSAGE
+        );
+        if (end == 0) {
+            this.setVisible(false);
+            JOptionPane.showMessageDialog(rootPane, "Mensagem apagada com sucesso.");
+        } else {
+            this.setVisible(true);
+        }
+    }//GEN-LAST:event_btnExcActionPerformed
+
+    private void btnPesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,21 +170,23 @@ public class FormMenEnv extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormMenEnv.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormMenBox.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormMenEnv.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormMenBox.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormMenEnv.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormMenBox.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormMenEnv.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormMenBox.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormMenEnv().setVisible(true);
+                new FormMenBox().setVisible(true);
             }
         });
     }
@@ -193,7 +195,7 @@ public class FormMenEnv extends javax.swing.JFrame {
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnExc;
     private javax.swing.JButton btnPes;
-    private javax.swing.JTextField fieldPara;
+    private javax.swing.JTextField fieldDe;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbDestino;
     private javax.swing.JList<String> list;

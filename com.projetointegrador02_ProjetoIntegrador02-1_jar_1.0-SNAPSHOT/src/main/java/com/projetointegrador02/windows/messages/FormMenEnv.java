@@ -2,21 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.projetointegrador02;
-
-import static java.awt.image.ImageObserver.WIDTH;
+package com.projetointegrador02.windows.messages;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Usuario
  */
-public class FormContVer extends javax.swing.JFrame {
+public class FormMenEnv extends javax.swing.JFrame {
 
     /**
-     * Creates new form FormContVer
+     * Creates new form FormMenEnt
      */
-    public FormContVer() {
+    public FormMenEnv() {
         initComponents();
     }
 
@@ -29,28 +27,41 @@ public class FormContVer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbNome = new javax.swing.JLabel();
-        fieldNome = new javax.swing.JTextField();
-        btnExc = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
+        lbDestino = new javax.swing.JLabel();
+        fieldDe = new javax.swing.JTextField();
+        btnPes = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         list = new javax.swing.JList<>();
-        btnPes = new javax.swing.JButton();
+        btnExc = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Ver Contatos");
+        setTitle("Mensagens Enviadas");
 
-        lbNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbNome.setLabelFor(fieldNome);
-        lbNome.setText("Nome:");
+        lbDestino.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbDestino.setText("Para:");
 
-        fieldNome.setColumns(12);
-        fieldNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        fieldNome.addActionListener(new java.awt.event.ActionListener() {
+        fieldDe.setColumns(12);
+        fieldDe.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        fieldDe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldNomeActionPerformed(evt);
+                fieldDeActionPerformed(evt);
             }
         });
+
+        btnPes.setText("🔍");
+        btnPes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesActionPerformed(evt);
+            }
+        });
+
+        list.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        list.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Mensagem 1", "Mensagem 2", "Mensagem 3", "Mensagem 4", "Mensagem 5", " " };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(list);
 
         btnExc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnExc.setText("Excluir");
@@ -61,25 +72,11 @@ public class FormContVer extends javax.swing.JFrame {
         });
 
         btnEdit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnEdit.setText("Editar");
+        btnEdit.setText("Responder");
+        btnEdit.setToolTipText("");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
-            }
-        });
-
-        list.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        list.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Contato 1", "Contato 1", "Contato 3", "Contato 4", "Contato 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(list);
-
-        btnPes.setText("🔍");
-        btnPes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesActionPerformed(evt);
             }
         });
 
@@ -88,32 +85,31 @@ public class FormContVer extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(lbNome)
+                .addGap(34, 34, 34)
+                .addComponent(lbDestino)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(btnExc, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(btnExc, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(fieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fieldDe)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnPes, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(77, Short.MAX_VALUE))
+                        .addComponent(btnPes, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPes, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(fieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbNome)))
-                .addGap(18, 18, 18)
+                        .addComponent(fieldDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbDestino)))
+                .addGap(21, 21, 21)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -125,19 +121,23 @@ public class FormContVer extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldNomeActionPerformed
+    private void fieldDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldDeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fieldNomeActionPerformed
+    }//GEN-LAST:event_fieldDeActionPerformed
+
+    private void btnPesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesActionPerformed
 
     private void btnExcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcActionPerformed
         // TODO add your handling code here:
         int end = JOptionPane.showConfirmDialog(
-                this, "Tem certeza que deseja excluir o contato?",
-                "Excluir Contato", WIDTH, JOptionPane.WARNING_MESSAGE
+            this, "Tem certeza que deseja apagar mensagem?",
+            "Apagar Mensagem", WIDTH, JOptionPane.WARNING_MESSAGE
         );
         if (end == 0) {
             this.setVisible(false);
-            JOptionPane.showMessageDialog(rootPane, "Contato excluído com sucesso.");
+            JOptionPane.showMessageDialog(rootPane, "Mensagem apagada com sucesso.");
         } else {
             this.setVisible(true);
         }
@@ -145,14 +145,9 @@ public class FormContVer extends javax.swing.JFrame {
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
-        FormContAdd formContAdd = new FormContAdd();
-        formContAdd.setVisible(true);
+        FormMenAdd formMenAdd = new FormMenAdd();
+        formMenAdd.setVisible(true);
     }//GEN-LAST:event_btnEditActionPerformed
-
-    private void btnPesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnPesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,20 +166,21 @@ public class FormContVer extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormContVer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormMenEnv.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormContVer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormMenEnv.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormContVer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormMenEnv.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormContVer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormMenEnv.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormContVer().setVisible(true);
+                new FormMenEnv().setVisible(true);
             }
         });
     }
@@ -193,9 +189,9 @@ public class FormContVer extends javax.swing.JFrame {
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnExc;
     private javax.swing.JButton btnPes;
-    private javax.swing.JTextField fieldNome;
+    private javax.swing.JTextField fieldDe;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbNome;
+    private javax.swing.JLabel lbDestino;
     private javax.swing.JList<String> list;
     // End of variables declaration//GEN-END:variables
 }

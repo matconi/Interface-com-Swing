@@ -3,8 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-package com.projetointegrador02;
+package com.projetointegrador02.windows;
 
+import com.projetointegrador02.windows.users.FormUsuAdd;
+import com.projetointegrador02.windows.messages.FormMenAdd;
+import com.projetointegrador02.windows.messages.FormMenBox;
+import com.projetointegrador02.windows.messages.FormMenEnv;
+import com.projetointegrador02.windows.contacts.FormContVer;
+import com.projetointegrador02.windows.contacts.FormContAdd;
 import javax.swing.JOptionPane;
 
 /**
@@ -60,6 +66,7 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Início");
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
