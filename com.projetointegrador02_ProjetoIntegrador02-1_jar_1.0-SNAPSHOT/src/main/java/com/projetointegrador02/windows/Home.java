@@ -5,6 +5,7 @@
 
 package com.projetointegrador02.windows;
 
+import com.projetointegrador02.entities.User;
 import com.projetointegrador02.windows.users.FormUsuAdd;
 import com.projetointegrador02.windows.messages.FormMenAdd;
 import com.projetointegrador02.windows.messages.FormMenBox;
@@ -18,8 +19,14 @@ import javax.swing.JOptionPane;
  * @author Usuario
  */
 public class Home extends javax.swing.JFrame {
-
-    /** Creates new form Home */
+    private User currentUser;
+    /** Creates new form Home
+     * @param currentUser */
+ 
+    public Home(User currentUser) {
+        initComponents();
+        this.currentUser = currentUser;
+    }
     public Home() {
         initComponents();
     }
@@ -39,8 +46,6 @@ public class Home extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jPopupMenu1 = new javax.swing.JPopupMenu();
-        jPopupMenu2 = new javax.swing.JPopupMenu();
         MenuBar = new javax.swing.JMenuBar();
         menuCont = new javax.swing.JMenu();
         itemContAdd = new javax.swing.JMenuItem();
@@ -66,7 +71,7 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Início");
-        setResizable(false);
+        setBackground(new java.awt.Color(0, 55, 154));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -198,10 +203,12 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_menuContActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        // TODO add your handling code here:
+        
+        System.out.println(currentUser.getId());
+        
         //JOptionPane jo = new JOptionPane(this, JOptionPane.WARNING_MESSAGE);
         int end = JOptionPane.showConfirmDialog(
-                this, "Fechar o menu inicial encerrará o programa. Tem certeza que deseja fazer isso?",
+                rootPane, "Fechar o menu inicial encerrará a aplicação. Tem certeza que deseja fazer isso?",
                 "Encerrar Programa", WIDTH, JOptionPane.WARNING_MESSAGE
         );
         if (end == 0) {
@@ -240,10 +247,8 @@ public class Home extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Home().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Home().setVisible(true);
         });
     }
 
@@ -262,8 +267,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPopupMenu jPopupMenu1;
-    private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JMenu menuCont;
     private javax.swing.JMenu menuMen;
     // End of variables declaration//GEN-END:variables

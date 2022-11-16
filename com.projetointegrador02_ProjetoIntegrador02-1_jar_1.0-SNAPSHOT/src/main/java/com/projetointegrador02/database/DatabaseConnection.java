@@ -23,7 +23,7 @@ public class DatabaseConnection {
     private int port;
 
     public DatabaseConnection(
-            String user, String password, String database, String server, int port
+        String user, String password, String database, String server, int port
     ) throws SQLException {
         this.user = user;
         this.password = password;

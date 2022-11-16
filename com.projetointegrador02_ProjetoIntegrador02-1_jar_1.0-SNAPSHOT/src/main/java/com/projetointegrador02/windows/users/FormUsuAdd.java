@@ -157,19 +157,19 @@ public class FormUsuAdd extends javax.swing.JFrame {
         try {
             validateRequiredFields();
             validateDoublePassword();
-            DatabaseConnection databaseConnection = new DatabaseConnection("root", Env.getPass(), "manager_messages", "localhost", 3306);
+            
+            DatabaseConnection databaseConnection = new DatabaseConnection(
+                "root", Env.getPass(), "manager_messages", "localhost", 3306);
             User user = new User(userField.getText(), passwordField.getText());
-            UserCrud userDao = new UserCrud(databaseConnection);
-            userDao.save(user);
+            UserCrud userCrud = new UserCrud(databaseConnection);
+            userCrud.save(user);
             JOptionPane.showMessageDialog(rootPane, "Usuário cadastrado com sucesso!");
             clean();
-            rootPane.setVisible(false);
+            this.setVisible(false);
         } catch (TreatmentException treatmentException) {
             JOptionPane.showMessageDialog(rootPane, treatmentException.getMessage());
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(rootPane, "Erro inesperado aconteceu!");
-            System.out.println(("nao"));
-
+            JOptionPane.showMessageDialog(rootPane, "Erro inesperado aconteceu! " + ex.getMessage());
             
         }
     }//GEN-LAST:event_btnAddUserActionPerformed
@@ -232,7 +232,7 @@ public class FormUsuAdd extends javax.swing.JFrame {
     private javax.swing.JTextField userField;
     // End of variables declaration//GEN-END:variables
      private void validateRequiredFields() throws TreatmentException {
-        if ((userField.getText().isBlank())||(passwordField.getText().isBlank())||(doublePasswordField.getText().isBlank())) {
+        if ((userField.getText().isBlank())||(passwordField.getText().isBlank())) {
             throw new TreatmentException("Todos os campos são obrigatórios!");
         }
         
@@ -244,6 +244,9 @@ public class FormUsuAdd extends javax.swing.JFrame {
         }
     }
     
+    private void uniqueUser() throws TreatmentException {
+        
+    }
     private void clean() {
         userField.setText("");
         passwordField.setText("");
