@@ -5,7 +5,6 @@
 package com.projetointegrador02.windows.users;
 
 import com.projetointegrador02.Env;
-import com.projetointegrador02.ProjetoIntegrador021;
 import com.projetointegrador02.database.DatabaseConnection;
 import com.projetointegrador02.database.UserCrud;
 import com.projetointegrador02.entities.User;
@@ -13,8 +12,6 @@ import com.projetointegrador02.validators.TreatmentException;
 import com.projetointegrador02.windows.Home;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -41,10 +38,12 @@ public class FormLogin extends javax.swing.JFrame {
 
         lbHeading = new javax.swing.JLabel();
         userField = new javax.swing.JTextField();
-        lbUsuario = new javax.swing.JLabel();
-        LbSenha = new javax.swing.JLabel();
+        lbNewUser = new javax.swing.JLabel();
+        lbPassword = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         passwordField = new javax.swing.JPasswordField();
+        lbUser = new javax.swing.JLabel();
+        btnCreate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Janela de Login");
@@ -52,23 +51,24 @@ public class FormLogin extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(0, 0));
 
         lbHeading.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
-        lbHeading.setForeground(new java.awt.Color(0, 153, 255));
+        lbHeading.setForeground(new java.awt.Color(0, 51, 153));
         lbHeading.setText("Login dos Usuários");
 
         userField.setColumns(10);
         userField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         userField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        userField.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 51, 102), null, null));
 
-        lbUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbUsuario.setLabelFor(userField);
-        lbUsuario.setText("Usuário:");
+        lbNewUser.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbNewUser.setLabelFor(userField);
+        lbNewUser.setText("Usuário novo?");
 
-        LbSenha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        LbSenha.setLabelFor(passwordField);
-        LbSenha.setText("Senha:");
+        lbPassword.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbPassword.setLabelFor(passwordField);
+        lbPassword.setText("Senha:");
 
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(0, 153, 255));
+        btnLogin.setForeground(new java.awt.Color(0, 51, 102));
         btnLogin.setText("ENTRAR");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,9 +78,24 @@ public class FormLogin extends javax.swing.JFrame {
 
         passwordField.setColumns(10);
         passwordField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        passwordField.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 51, 102), null, null));
         passwordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordFieldActionPerformed(evt);
+            }
+        });
+
+        lbUser.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbUser.setLabelFor(userField);
+        lbUser.setText("Usuário:");
+
+        btnCreate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCreate.setForeground(new java.awt.Color(0, 51, 102));
+        btnCreate.setText("CRIAR CONTA");
+        btnCreate.setActionCommand("CRIAR CONTA");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
             }
         });
 
@@ -92,15 +107,20 @@ public class FormLogin extends javax.swing.JFrame {
                 .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbUsuario)
-                        .addGap(18, 18, 18)
+                        .addComponent(lbUser)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(LbSenha)
+                        .addComponent(lbPassword)
                         .addGap(18, 18, 18)
                         .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbHeading))
+                    .addComponent(lbHeading)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lbNewUser)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,19 +129,19 @@ public class FormLogin extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(lbHeading)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lbUsuario))
-                    .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(LbSenha))
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbUser))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbPassword))
+                .addGap(20, 20, 20)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbNewUser))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
@@ -134,13 +154,19 @@ public class FormLogin extends javax.swing.JFrame {
         } catch (TreatmentException treatmentException) {
             JOptionPane.showMessageDialog(rootPane, treatmentException.getMessage()); 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(rootPane, "Erro na consulta aconteceu! " + ex.getMessage());
+            JOptionPane.showMessageDialog(
+                rootPane, "Erro na consulta aconteceu! " + ex.getErrorCode() + ex.getMessage());
         }
     }//GEN-LAST:event_btnLoginActionPerformed
      
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordFieldActionPerformed
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        FormUsuAdd formUsuAdd = new FormUsuAdd();
+        formUsuAdd.setVisible(true);
+    }//GEN-LAST:event_btnCreateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,10 +202,12 @@ public class FormLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel LbSenha;
+    private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel lbHeading;
-    private javax.swing.JLabel lbUsuario;
+    private javax.swing.JLabel lbNewUser;
+    private javax.swing.JLabel lbPassword;
+    private javax.swing.JLabel lbUser;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField userField;
     // End of variables declaration//GEN-END:variables
@@ -187,19 +215,21 @@ public class FormLogin extends javax.swing.JFrame {
         userField.setText("");
         passwordField.setText("");
     }
+    public static User createCurrentUser(ResultSet rs) throws SQLException {
+        User currentUser = new User(
+            rs.getInt("id"), rs.getString("username"), rs.getString("password"));
+        return currentUser; 
+    }
+    
     public void validateUser() throws TreatmentException, SQLException {
         DatabaseConnection databaseConnection = new DatabaseConnection(
             "root", Env.getPass(), "manager_messages", "localhost", 3306);
-       // String userName = userTextField.getText();
-       // String password = passwordTextField.getText();
-       // UserCrud userCrud = new UserCrud(databaseConnection);
-        
-       // ResultSet rs =  userCrud.login(userName, password);
+      
         UserCrud userCrud = new UserCrud(databaseConnection);
         ResultSet rs = userCrud.login(userField.getText(), passwordField.getText());
+        
         if (rs.next()) {
-            User currentUser = new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"));
-            Home home = new Home(currentUser);
+            Home home = new Home(createCurrentUser(rs));
             home.setVisible(true);
             this.setVisible(false);
         } else {

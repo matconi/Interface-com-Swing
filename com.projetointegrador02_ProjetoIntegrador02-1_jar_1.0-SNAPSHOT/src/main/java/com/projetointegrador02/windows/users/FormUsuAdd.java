@@ -38,7 +38,6 @@ public class FormUsuAdd extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jOptionPane1 = new javax.swing.JOptionPane();
         userField = new javax.swing.JTextField();
         lbUser = new javax.swing.JLabel();
         lbPassword = new javax.swing.JLabel();
@@ -143,8 +142,7 @@ public class FormUsuAdd extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
-        // TODO add your handling code here:
-        
+       
         /*JOptionPane jo = new JOptionPane();
         if ((this.fieldEmail.getText().equals(noneData)) || (this.fieldUsuario.getText().equals(noneData)) || (this.passwordField.getText().equals(noneData))) {
             jo.showMessageDialog(rootPane, "Preencha todos os campos corretamente!",
@@ -169,7 +167,8 @@ public class FormUsuAdd extends javax.swing.JFrame {
         } catch (TreatmentException treatmentException) {
             JOptionPane.showMessageDialog(rootPane, treatmentException.getMessage());
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(rootPane, "Erro inesperado aconteceu! " + ex.getMessage());
+            JOptionPane.showMessageDialog(
+                rootPane, "Erro inesperado aconteceu! " + ex.getErrorCode() + ex.getMessage());
             
         }
     }//GEN-LAST:event_btnAddUserActionPerformed
@@ -224,7 +223,6 @@ public class FormUsuAdd extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddUser;
     private javax.swing.JPasswordField doublePasswordField;
-    private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JLabel lbDoublePassword;
     private javax.swing.JLabel lbPassword;
     private javax.swing.JLabel lbUser;
