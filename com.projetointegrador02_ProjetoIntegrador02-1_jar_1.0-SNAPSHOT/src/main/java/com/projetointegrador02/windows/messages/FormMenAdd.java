@@ -208,10 +208,8 @@ public class FormMenAdd extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormMenAdd().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new FormMenAdd().setVisible(true);
         });
     }
 

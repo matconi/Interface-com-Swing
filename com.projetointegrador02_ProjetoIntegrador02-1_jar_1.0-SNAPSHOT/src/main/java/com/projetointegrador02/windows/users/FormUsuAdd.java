@@ -161,15 +161,17 @@ public class FormUsuAdd extends javax.swing.JFrame {
             User user = new User(userField.getText(), passwordField.getText());
             UserCrud userCrud = new UserCrud(databaseConnection);
             userCrud.save(user);
-            JOptionPane.showMessageDialog(rootPane, "Usuário cadastrado com sucesso!");
+            JOptionPane.showMessageDialog(rootPane, "Usuário cadastrado com sucesso!", 
+                "Sucesso", JOptionPane.INFORMATION_MESSAGE);
             clean();
             this.setVisible(false);
         } catch (TreatmentException treatmentException) {
-            JOptionPane.showMessageDialog(rootPane, treatmentException.getMessage());
+            JOptionPane.showMessageDialog(rootPane, treatmentException.getMessage(),
+                "Campos inválidos", JOptionPane.ERROR_MESSAGE);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(
-                rootPane, "Erro inesperado aconteceu! " + ex.getErrorCode() + ex.getMessage());
-            
+            JOptionPane.showMessageDialog(rootPane, 
+                "Erro inesperado aconteceu! " + ex.getErrorCode() + ex.getMessage(),
+                "Erro", JOptionPane.ERROR_MESSAGE);      
         }
     }//GEN-LAST:event_btnAddUserActionPerformed
 
@@ -213,10 +215,8 @@ public class FormUsuAdd extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormUsuAdd().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new FormUsuAdd().setVisible(true);
         });
     }
 

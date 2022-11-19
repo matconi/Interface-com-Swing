@@ -152,11 +152,13 @@ public class FormLogin extends javax.swing.JFrame {
         try {
             validateUser();     
         } catch (TreatmentException treatmentException) {
-            JOptionPane.showMessageDialog(rootPane, treatmentException.getMessage()); 
+            JOptionPane.showMessageDialog(rootPane, treatmentException.getMessage(),
+                "Campos inválidos", JOptionPane.ERROR_MESSAGE); 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(
-                rootPane, "Erro na consulta aconteceu! " + ex.getErrorCode() + ex.getMessage());
-        }
+           JOptionPane.showMessageDialog(rootPane, 
+                "Erro inesperado aconteceu! " + ex.getErrorCode() + ex.getMessage(),
+                "Erro", JOptionPane.ERROR_MESSAGE);
+        }   
     }//GEN-LAST:event_btnLoginActionPerformed
      
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed

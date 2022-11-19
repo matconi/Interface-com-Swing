@@ -25,6 +25,10 @@ public class User {
         this.userName = user;
         this.password = password;
     }
+    
+    public User(int id) {
+        this.id = id;
+    }
 
     public User() {
         

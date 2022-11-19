@@ -4,6 +4,13 @@
  */
 package com.projetointegrador02.windows.contacts;
 
+import com.projetointegrador02.Env;
+import com.projetointegrador02.database.ContactCrud;
+import com.projetointegrador02.database.DatabaseConnection;
+import com.projetointegrador02.entities.Contact;
+import com.projetointegrador02.entities.User;
+import com.projetointegrador02.validators.TreatmentException;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,14 +18,35 @@ import javax.swing.JOptionPane;
  * @author Usuario
  */
 public class FormContAdd extends javax.swing.JFrame {
-
+    private User current;
+    private Contact contact;   
+    
     /**
      * Creates new form FormContAdd
+     * @param contact
+     * @param current
      */
-    public FormContAdd() {
+    // seleção da tabela
+    public FormContAdd(User current, Contact contact) {
         initComponents();
+        this.current = current;
+        this.contact = contact;   
+        initFormFromTable();
     }
-
+    //runable
+    public FormContAdd() {
+        initComponents();      
+    }
+    //sem tabela
+    public FormContAdd(User current) {
+        initComponents(); 
+        this.current = current;
+    }
+    
+    private void initFormFromTable() {
+        idField.setText(String.valueOf(contact.getContactId()));
+        idField.setEditable(false);
+    } 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,36 +58,36 @@ public class FormContAdd extends javax.swing.JFrame {
 
         lbID = new javax.swing.JLabel();
         lbCont = new javax.swing.JLabel();
-        fieldEmail = new javax.swing.JTextField();
-        fieldNome = new javax.swing.JTextField();
+        contactNameField = new javax.swing.JTextField();
+        idField = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-        lbCont1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Adicionar contato");
+        setResizable(false);
 
         lbID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbID.setLabelFor(fieldNome);
+        lbID.setLabelFor(idField);
         lbID.setText("ID do Usuário:");
 
         lbCont.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbCont.setLabelFor(fieldEmail);
-        lbCont.setText("Nome de");
+        lbCont.setLabelFor(contactNameField);
+        lbCont.setText("Nome do Contato:");
 
-        fieldEmail.setColumns(11);
-        fieldEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        fieldEmail.addActionListener(new java.awt.event.ActionListener() {
+        contactNameField.setColumns(11);
+        contactNameField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        contactNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldEmailActionPerformed(evt);
+                contactNameFieldActionPerformed(evt);
             }
         });
 
-        fieldNome.setColumns(15);
-        fieldNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        fieldNome.addActionListener(new java.awt.event.ActionListener() {
+        idField.setColumns(15);
+        idField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        idField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldNomeActionPerformed(evt);
+                idFieldActionPerformed(evt);
             }
         });
 
@@ -79,80 +107,104 @@ public class FormContAdd extends javax.swing.JFrame {
             }
         });
 
-        lbCont1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbCont1.setLabelFor(fieldEmail);
-        lbCont1.setText("Contato:");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbCont)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(lbCont1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(fieldEmail))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(lbID)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(fieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnSave))))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(btnCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(lbCont)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbID)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(contactNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbID)
-                    .addComponent(fieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(idField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbID)))
                 .addGap(18, 18, 18)
-                .addComponent(lbCont)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbCont1))
-                .addGap(38, 38, 38)
+                    .addComponent(lbCont)
+                    .addComponent(contactNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
                     .addComponent(btnCancel))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldEmailActionPerformed
+    private void contactNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactNameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fieldEmailActionPerformed
+    }//GEN-LAST:event_contactNameFieldActionPerformed
 
-    private void fieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldNomeActionPerformed
+    private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fieldNomeActionPerformed
+    }//GEN-LAST:event_idFieldActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
-        String noneData = "";
-        JOptionPane jo = new JOptionPane();     
-        if ((this.fieldNome.getText().equals(noneData)) || (this.fieldEmail.getText().equals(noneData))) {           
-            jo.showMessageDialog(rootPane, "Preencha todos os campos corretamente!",
-                "Campos inválidos", JOptionPane.ERROR_MESSAGE);
-        } else {      
-            jo.showMessageDialog(rootPane, "Contato adicionado com sucesso!",
+        DatabaseConnection databaseConnection;
+        try {
+            databaseConnection = new DatabaseConnection(
+                "root", Env.getPass(), "manager_messages", "localhost", 3306);
+            ContactCrud contactCrud = new ContactCrud(databaseConnection);
+            
+            validateRequiredFields();
+            int contactId;
+            if (!idField.isEnabled()) { // seleção da tabela
+                contactId = current.getId();      
+            } else { // sem seleção
+                contactId = Integer.parseInt(idField.getText());
+            }
+            Contact contactSave = new Contact(
+                contactNameField.getText(), current.getId(), contactId);
+            contactCrud.save(contactSave);
+            JOptionPane.showMessageDialog(rootPane, "Contato adicionado com sucesso!", 
                 "Sucesso", JOptionPane.INFORMATION_MESSAGE);
             this.setVisible(false);
+        } catch (TreatmentException treatmentException) {
+            JOptionPane.showMessageDialog(rootPane, treatmentException.getMessage(),
+                "Campos inválidos", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            switch (ex.getErrorCode()) {
+                case 1452 -> JOptionPane.showMessageDialog(rootPane, 
+                            "ID do usuário foi excluido ou não existe",
+                            "Erro", JOptionPane.ERROR_MESSAGE);
+                case 1062 -> JOptionPane.showMessageDialog(rootPane, String.format(
+                            "Usuário já adicionado como '%s'",
+                            contact
+                            ), "Erro", JOptionPane.ERROR_MESSAGE);
+                default -> JOptionPane.showMessageDialog(rootPane,           
+                        "Erro inesperado aconteceu! " + ex.getErrorCode() + ex.getMessage(),
+                        "Erro", JOptionPane.ERROR_MESSAGE);
+            }
         }
+      
+        
+        
+        
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelActionPerformed
 
@@ -184,20 +236,22 @@ public class FormContAdd extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormContAdd().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new FormContAdd().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSave;
-    private javax.swing.JTextField fieldEmail;
-    private javax.swing.JTextField fieldNome;
+    private javax.swing.JTextField contactNameField;
+    private javax.swing.JTextField idField;
     private javax.swing.JLabel lbCont;
-    private javax.swing.JLabel lbCont1;
     private javax.swing.JLabel lbID;
     // End of variables declaration//GEN-END:variables
+    private void validateRequiredFields() throws TreatmentException {
+        if ((idField.getText().isBlank())||(contactNameField.getText().isBlank())) {           
+            throw new TreatmentException("Todos os campos são obrigatórios!");
+        }
+    }
 }
